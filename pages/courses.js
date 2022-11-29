@@ -6,6 +6,14 @@ export const getStaticProps = async () => {
         props: { productData: data }
     }
 }
+
+export const getServerSideProps = async () => {
+    const responce = await fetch('https://fakestoreapi.com/products');
+    const data = await responce.json();
+    return {
+        props: { productData: data }
+    }
+}
 const Courses = (props) => {
 
     const productData = props.productData;
